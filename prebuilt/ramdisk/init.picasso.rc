@@ -20,11 +20,11 @@ on early-init
     # symlink /mnt/usbdrive /usbdrive
 
 on fs
-    mount ext4 /dev/block/mmcblk0p3 /system wait ro
+    mount ext4 /dev/block/mmcblk0p3 /system wait ro noatime nodiratime
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
-    mount ext4 /dev/block/mmcblk0p8 /data wait noatime nosuid nodev
-    mount ext4 /dev/block/mmcblk0p4 /cache wait noatime nosuid nodev
-#    mount ext4 /dev/block/mmcblk0p6 /system/vendor wait ro
+    mount ext4 /dev/block/mmcblk0p8 /data wait noatime nosuid nodev nodiratime noauto_da_alloc
+    mount ext4 /dev/block/mmcblk0p4 /cache wait noatime nosuid nodev nodiratime noauto_da_alloc
+#    mount ext4 /dev/block/mmcblk0p6 /system/vendor wait ro noatime nodiratime 
 
 on post-fs-data
     mkdir /data/misc/wifi 0770 wifi wifi
@@ -41,6 +41,10 @@ on post-fs-data
 
     # Insert NTFS filesystem driver
     insmod system/lib/modules/ufsd.ko
+    insmod system/lib/modules/cifs.ko
+    insmod system/lib/modules/md4.ko
+    insmod system/lib/modules/hfs.ko
+    insmod system/lib/modules/hfsplus.ko
 
 on boot
 # bluetooth
