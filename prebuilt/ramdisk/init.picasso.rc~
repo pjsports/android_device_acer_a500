@@ -11,7 +11,6 @@ on early-init
     export SECONDARY_STORAGE /mnt/external_sd
     export SECOND_VOLUME_STORAGE /mnt/external_sd
     mkdir /mnt/external_sd 0000 system system
-    symlink /mnt/external_sd /external_sd
 
     export THIRD_VOLUME_STORAGE /mnt/usb_storage
     mkdir /mnt/usb_storage 0000 system system
@@ -21,11 +20,11 @@ on early-init
     # symlink /mnt/usbdrive /usbdrive
 
 on fs
-    mount ext4 /dev/block/mmcblk0p3 /system wait ro noatime nodiratime
+    mount ext4 /dev/block/mmcblk0p3 /system wait ro
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
-    mount ext4 /dev/block/mmcblk0p8 /data wait noatime nosuid nodev nodiratime noauto_da_alloc
-    mount ext4 /dev/block/mmcblk0p4 /cache wait noatime nosuid nodev nodiratime noauto_da_alloc
-    mount ext4 /dev/block/mmcblk0p6 /system/vendor wait ro noatime nodiratime 
+    mount ext4 /dev/block/mmcblk0p8 /data wait noatime nosuid nodev
+    mount ext4 /dev/block/mmcblk0p4 /cache wait noatime nosuid nodev
+#    mount ext4 /dev/block/mmcblk0p6 /system/vendor wait ro
 
 on post-fs-data
     mkdir /data/misc/wifi 0770 wifi wifi
@@ -42,12 +41,6 @@ on post-fs-data
 
     # Insert NTFS filesystem driver
     insmod system/lib/modules/ufsd.ko
-
-    # Insert CIF modules TWEAKS
-    insmod system/lib/modules/cifs.ko
-    insmod system/lib/modules/md4.ko
-    insmod system/lib/modules/hfs.ko
-    insmod system/lib/modules/hfsplus.ko
 
 on boot
 # bluetooth

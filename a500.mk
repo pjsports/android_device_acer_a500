@@ -24,6 +24,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/modules/bcm4329.ko:system/lib/modules/bcm4329.ko \
     $(LOCAL_PATH)/prebuilt/modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko \
+    $(LOCAL_PATH)/prebuilt/modules/cifs.ko:system/lib/modules/cifs.ko \
+    $(LOCAL_PATH)/prebuilt/modules/hfs.ko:system/lib/modules/hfs.ko \
+    $(LOCAL_PATH)/prebuilt/modules/hfsplus.ko:system/lib/modules/hfsplus.ko \
+    $(LOCAL_PATH)/prebuilt/modules/md4.ko:system/lib/modules/md4.ko \
+    $(LOCAL_PATH)/prebuilt/modules/ntfs.ko:system/lib/modules/ntfs.ko 
 
 # hw permissions
 PRODUCT_COPY_FILES += \
@@ -36,6 +41,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
     $(LOCAL_PATH)/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/prebuilt/etc/wpa_supplicant:system/etc/wpa_supplicant \
+    $(LOCAL_PATH)/prebuilt/bin/get-gps-lto:system/bin/get-gps-lto \
+    $(LOCAL_PATH)/prebuilt/bin/axel:system/bin/axel \
+    $(LOCAL_PATH)/prebuilt/bin/sysro:system/bin/sysro \
+    $(LOCAL_PATH)/prebuilt/bin/sysrw:system/bin/sysrw \
+    $(LOCAL_PATH)/prebuilt/data/gps/lto.dat:data/gps/lto.dat \
     $(LOCAL_PATH)/prebuilt/usr/idc/atmel-maxtouch.idc:system/usr/idc/atmel-maxtouch.idc \
     $(LOCAL_PATH)/prebuilt/usr/keylayout/acer-dock.kl:system/usr/keylayout/acer-dock.kl \
     $(LOCAL_PATH)/prebuilt/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
