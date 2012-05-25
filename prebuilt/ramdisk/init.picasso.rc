@@ -44,10 +44,7 @@ on post-fs-data
     insmod system/lib/modules/ufsd.ko
 
     # Insert CIF modules TWEAKS
-    insmod system/lib/modules/cifs.ko
     insmod system/lib/modules/md4.ko
-    insmod system/lib/modules/hfs.ko
-    insmod system/lib/modules/hfsplus.ko
 
 on boot
 # bluetooth
