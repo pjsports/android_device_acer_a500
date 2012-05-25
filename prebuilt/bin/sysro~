@@ -1,3 +1,0 @@
-#!/system/xbin/sh
-busybox mount -o ro,remount /system
-
